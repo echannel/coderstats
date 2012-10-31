@@ -2,6 +2,8 @@
 class Github
   include HTTParty
 
+  # TODO: Dry this up
+  # TODO: Add Create Event handler
   class PushEvent
     def initialize(hash)
       @commits     = hash['payload']['commits']

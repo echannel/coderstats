@@ -47,9 +47,9 @@
           <a class="brand" href="#">Coderstats</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Stats", stats_path  %></li>
+              <li><%= link_to "Users", users_path  %></li>
+              <li><%= link_to "Trackers", trackers_path  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -61,10 +61,7 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <%= yield :sidebar %>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

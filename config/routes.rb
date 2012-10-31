@@ -1,6 +1,6 @@
 Coderstats::Application.routes.draw do
   resources :trackers
-
+  resources :stats
   resources :users
 
   # The priority is based upon order of creation:

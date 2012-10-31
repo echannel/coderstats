@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1>Stats (<%= @timeframe.to_s.humanize %>)</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stats.each do |stat| %>
+      <tr>
+        <td><%= stat.name %></td>
+        <td><%= stat.points %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= content_for :sidebar do %>
+  <li class="nav-header">Time frames</li>
+  <li><%= link_to "Today", "?timeframe=today"  %></li>
+  <li><%= link_to "Yesterday",  :timeframe => "yesterday"  %></li>
+  <li><%= link_to "This Week",  :timeframe => "current_week"  %></li>
+  <li><%= link_to "Last Week",  :timeframe => "last_week"  %></li>
+  <li><%= link_to "This Month", :timeframe => "current_month"  %></li>
+  <li><%= link_to "Last Month", :timeframe => "last_month"  %></li>
+<% end %>
