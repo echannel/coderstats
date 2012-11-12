@@ -6,5 +6,5 @@ class Activity < ActiveRecord::Base
   scope :pivotal, where(:provider => 'pivotal')
   scope :github,  where(:provider => 'github')
 
-  default_scope :order => "activities.created_at desc"
+  scope :newest, :order => "activities.created_at desc"
 end

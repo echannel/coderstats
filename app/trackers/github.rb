@@ -55,7 +55,6 @@ class Github
     @token = token
   end
 
-  # TODO: Filter by organisation!
   def activities(options = {})
     query = { :access_token => @token, :page => options[:page] || 1 }
     results = self.class.get("/users/#{@coder}/events", :query => query)

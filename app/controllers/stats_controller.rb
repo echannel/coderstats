@@ -5,9 +5,9 @@ class StatsController < ApplicationController
       Activity.where(:created_at => timeframe(@timeframe))
       .joins(:user)
       .joins(:tracker)
-      .select("users.name as name,sum(coalesce(activities.points, trackers.points)) as points")
+      .select("users.name as name,sum(coalesce(activities.points, trackers.points)) as points_sum")
       .group('users.name')
-      .order("points desc")
+      .order("points_sum desc")
   end
 
   private

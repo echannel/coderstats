@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # Only user oriented activities such as Github
   def process_activities
     gh = Github.new(self.github_handle, self.github_token)
-    since = self.activities.github.first.try(:created_at)
+    since = self.activities.newest.github.first.try(:created_at)
 
     10.downto(1) do |page|
       gh.activities(:page => page, :org => 'echannel', :since => since).each do |activity|

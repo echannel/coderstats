@@ -3,7 +3,7 @@ PivotalTracker::Client.token = '84d76421cfe2beb2550c5f66ac628286'
 
 class Pivotal
   def self.process_activity
-    since = Activity.pivotal.first.try(:created_at)
+    since = Activity.newest.pivotal.first.try(:created_at)
     activity = PivotalTracker::Activity.all(nil, :limit => 100, :occurred_since_date => since)
     activity.each do |event|
       user = User.where(:name => event.author).first
